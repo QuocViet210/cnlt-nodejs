@@ -2,7 +2,7 @@ const express = require('express')
 const app = new express()
 const path = require('path')
 
-app.use(express.static('public1'))
+app.use(express.static('public2'))
 
 app.get('/', (request, response) => {
     response.sendFile(path.resolve(__dirname, 'pages/index.html'))
