@@ -1,0 +1,54 @@
+<%- include('layouts/header') %>
+    <%- include('layouts/navbar') %>
+
+        <header class="masthead" style="background-image: url('/assets/img/post-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>
+                                <%= item.name %>
+                            </h1>
+                            <h2 class="subheading">
+                                <%= item.description %>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <h2 class="section-heading">Thông tin chi tiết</h2>
+                        <p>Địa điểm du lịch <strong>
+                                <%= item.name %>
+                            </strong> hiện đang thu hút rất nhiều du khách.</p>
+                        <p>Mô tả tổng quan: <%= item.description %>
+                        </p>
+
+                        <blockquote class="blockquote">
+                            Chi phí dự kiến: <%= item.price.toLocaleString('vi-VN') %> VNĐ [cite: 699]
+                        </blockquote>
+
+                        <p>
+                            <% if (item.hot) { %> [cite: 700]
+                                <span style="color: red; font-weight: bold;">🔥 Đánh giá: Địa điểm này đang rất
+                                    HOT!</span> [cite: 701]
+                                <% } else { %> [cite: 702]
+                                    <span style="color: gray;">Đánh giá: Địa điểm bình thường, thích hợp nghỉ dưỡng yên
+                                        tĩnh.</span> [cite: 703]
+                                    <% } %> [cite: 704]
+                        </p>
+
+                        <p>
+                            <a href="/list">← Quay lại danh sách</a> [cite: 705]
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <%- include('layouts/footer') %>

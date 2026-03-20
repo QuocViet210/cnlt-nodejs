@@ -1,0 +1,40 @@
+<%- include('layouts/header') %>
+    <%- include('layouts/navbar') %>
+
+        <header class="masthead" style="background-image: url('/assets/img/home-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>
+                                <%= title %>
+                            </h1>
+                            <span class="subheading">Chào mừng đến với Blog của Quốc Việt</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-preview">
+                        <a href="/list">
+                            <h2 class="post-title">Bấm vào đây để xem Danh sách</h2>
+                            <h3 class="post-subtitle">Dữ liệu được lấy trực tiếp từ mảng items trong Node.js</h3>
+                        </a>
+                        <p class="post-meta">
+                            Đăng bởi <a href="#!">Việt</a> vào hôm nay
+                        </p>
+                    </div>
+                    <hr class="my-4" />
+
+                    <div class="d-flex justify-content-end mb-4">
+                        <a class="btn btn-primary text-uppercase" href="/list">Xem Danh Sách →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('layouts/footer') %>
