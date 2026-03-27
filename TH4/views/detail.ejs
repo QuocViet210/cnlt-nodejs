@@ -3,17 +3,38 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Chi tiết bài viết</title>
+    <title>
+        <%= post.title %>
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <h1>
-        <%= post.title %>
-    </h1>
-    <p>
-        <%= post.body %>
-    </p>
-    <a href="/">← Về trang chủ</a>
+    <header>
+        <h1>📝 Blog Cá Nhân</h1>
+    </header>
+
+    <div class="container">
+        <div class="detail-card">
+            <h1>
+                <%= post.title %>
+            </h1>
+            <br>
+            <p>
+                <%= post.body %>
+            </p>
+            <br>
+            <div class="post-actions">
+                <a href="/" class="btn btn-primary">← Về trang chủ</a>
+                <a href="/blogposts/<%= post._id %>/edit" class="btn btn-warning">✏️ Sửa</a>
+                <form action="/blogposts/<%= post._id %>/delete" method="POST" style="display:inline">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa?')">
+                        🗑 Xóa
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
