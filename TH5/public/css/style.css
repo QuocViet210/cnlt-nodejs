@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* 1. Màu nền gốc: Xanh đen sâu thẳm của vũ trụ */
+    background-color: #e1f28e;
+
+    /* 2. Vẽ họa tiết công nghệ bằng CSS Gradients */
+    background-image:
+        /* Lớp 1: Ánh sáng hắt màu xanh Neon từ trên xuống */
+        radial-gradient(circle at 50% 0%, rgba(119, 202, 238, 0.15), transparent 50%),
+        /* Lớp 2: Đường kẻ ngang của lưới ma trận */
+        linear-gradient(#87e7b80a 1px, transparent 1px),
+        /* Lớp 3: Đường kẻ dọc của lưới ma trận */
+        linear-gradient(90deg, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+
+    /* 3. Kích thước của lưới (Mỗi ô vuông 40x40 pixel) */
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+
+    /* 4. Cố định nền: Khi cuộn chuột, nền đứng im tạo hiệu ứng chiều sâu 3D */
+    background-attachment: fixed;
+    background-position: center top;
+
+    color: #f4d27d;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* HEADER - Phong cách Glassmorphism (Kính mờ) */
+header {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    font-family: 'Fira Code', monospace;
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    /* Hiệu ứng chữ gradient màu Neon */
+    background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* BUTTONS - Hiệu ứng viền sáng chớp tắt */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: 'Fira Code', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 4px 4px 4px 0;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.btn-primary {
+    color: #38bdf8;
+    border-color: #38bdf8;
+}
+
+.btn-primary:hover {
+    background: #38bdf8;
+    color: #0b1120;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+}
+
+.btn-success {
+    color: #10b981;
+    /* Xanh Matrix */
+    border-color: #10b981;
+}
+
+.btn-success:hover {
+    background: #10b981;
+    color: #0b1120;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+}
+
+.btn-warning {
+    color: #f59e0b;
+    border-color: #f59e0b;
+}
+
+.btn-warning:hover {
+    background: #f59e0b;
+    color: #0b1120;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+}
+
+.btn-danger {
+    color: #ef4444;
+    border-color: #ef4444;
+}
+
+.btn-danger:hover {
+    background: #ef4444;
+    color: #0b1120;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+}
+
+/* CARDS DÙNG CHUNG (Bài viết, Form, Chi tiết) */
+.post-card,
+.form-card,
+.detail-card {
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hiệu ứng nổi bồng bềnh khi di chuột vào thẻ bài viết */
+.post-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(56, 189, 248, 0.3);
+    box-shadow: 0 15px 30px -5px rgba(56, 189, 248, 0.15);
+}
+
+.post-card h2,
+.form-card h1,
+.detail-card h1 {
+    font-family: 'Fira Code', monospace;
+    color: #f8fafc;
+    margin-bottom: 12px;
+}
+
+.post-card p,
+.detail-card p {
+    color: #cbd5e1;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* FORMS - Kiểu dáng Console/Terminal */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 13px;
+    color: #38bdf8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    background: #0f172a;
+    /* Nền input tối hơn form */
+    border: 1px solid #334155;
+    border-radius: 8px;
+    color: #f8fafc;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+.form-group textarea {
+    height: 180px;
+    resize: vertical;
+}
+
+/* CUSTOM SCROLLBAR (Cuộn trang xịn xò) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #38bdf8;
+}
