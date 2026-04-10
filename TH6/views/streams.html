@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Tổng Hợp Stream</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .section {
+            background: white;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        button {
+            padding: 8px 16px;
+            background: #34495e;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2c3e50;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 60%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Demo 4 Loại Stream trong NodeJS</h1>
+
+    <div class="section">
+        <h3>1. Readable Stream</h3>
+        <p>Đọc file bằng <code>fs.createReadStream()</code> và ép trình duyệt tải về file log.</p>
+        <a href="/download-log" target="_blank"><button>Tải File Log</button></a>
+    </div>
+
+    <div class="section">
+        <h3>2. Writable Stream</h3>
+        <p>Server dùng <code>fs.createWriteStream()</code> để ghi dữ liệu bạn nhập vào file <b>output.txt</b>.</p>
+        <form action="/write-stream" method="POST" target="_blank">
+            <input type="text" name="content" placeholder="Nhập nội dung cần ghi..." required>
+            <button type="submit">Ghi File</button>
+        </form>
+    </div>
+
+    <div class="section">
+        <h3>3. Transform Stream</h3>
+        <p>Đọc file <b>story.txt</b>, đi qua ống biến đổi (In hoa) rồi mới trả về trình duyệt.</p>
+        <a href="/transform" target="_blank"><button>Xem Text Biến Đổi</button></a>
+    </div>
+
+    <div class="section">
+        <h3>4. Duplex Stream (Echo)</h3>
+        <p>Gửi dữ liệu lên, Server vừa đọc (read) vừa dội ngược ngay lại trình duyệt (write).</p>
+        <form action="/duplex-echo" method="POST" target="_blank">
+            <input type="text" name="message" placeholder="Gõ gì đó..." required>
+            <button type="submit">Test Echo Duplex</button>
+        </form>
+    </div>
+
+    <a href="/" style="text-decoration: none; color: #3498db;">← Về Trang chủ</a>
+</body>
+
+</html>

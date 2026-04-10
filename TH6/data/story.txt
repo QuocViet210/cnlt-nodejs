@@ -1,0 +1,3 @@
+Node.js là một nền tảng (runtime environment) mã nguồn mở, 
+đa nền tảng, cho phép lập trình viên chạy mã JavaScript ở phía server (server-side) 
+thay vì chỉ trong trình duyệt. Nó được xây dựng dựa trên công cụ V8 JavaScript Engine của Google Chrome.
