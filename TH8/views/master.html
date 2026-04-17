@@ -3,17 +3,112 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Trang Upload File</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Upload File Siêu Cấp Vip Pro</title>
+    <style>
+        /* CSS reset cơ bản */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Chỉnh màu nền và đưa card vào chính giữa màn hình */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Khung trắng chứa Form */
+        .upload-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .upload-card h2 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        /* Khu vực chọn file có viền đứt đoạn */
+        .file-drop-area {
+            border: 2px dashed #3498db;
+            border-radius: 10px;
+            padding: 30px 20px;
+            background-color: #f8fbff;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hiệu ứng đổi màu khi rê chuột vào khu vực chọn file */
+        .file-drop-area:hover {
+            background-color: #e1f0fa;
+            border-color: #2980b9;
+        }
+
+        /* Tùy chỉnh input file */
+        input[type="file"] {
+            width: 100%;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        /* Nút Submit cực ngầu */
+        .btn-submit {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: background 0.3s ease, transform 0.1s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #27ae60;
+        }
+
+        .btn-submit:active {
+            transform: scale(0.98);
+        }
+
+        /* Chữ ghi chú bên dưới */
+        .note {
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
-    <h2>Form Upload Nhiều File</h2>
 
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="file" name="many-files" multiple required>
-        <button type="submit">Tải lên máy chủ</button>
-    </form>
+    <div class="upload-card">
+        <h2>☁️ Đám Mây Của Bạn</h2>
 
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="file-drop-area">
+                <p style="color: #3498db; font-weight: bold; font-size: 18px;">Chọn ảnh từ máy tính</p>
+                <input type="file" name="many-files" multiple required>
+            </div>
+
+            <button type="submit" class="btn-submit">🚀 TẢI LÊN MÁY CHỦ</button>
+            <p class="note">⚠️ Lắp đặt bộ lọc: Chỉ hỗ trợ File Hình Ảnh (Max: 5MB)</p>
+        </form>
+    </div>
 
 </body>
 
