@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Phòng Chat - Realtime</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="screen">
+        <div id="chat-screen">
+            <div class="sidebar">
+                <h3>🟢 Đang Online</h3>
+                <ul id="user-list"></ul>
+            </div>
+
+            <div class="main-chat">
+                <div class="chat-header">
+                    <h3 id="chat-title">Đang kết nối...</h3>
+                </div>
+                <div id="chat-box" class="chat-box"></div>
+                <div class="chat-input">
+                    <input type="text" id="msg-input" placeholder="Nhập tin nhắn..." disabled autocomplete="off">
+                    <button id="btn-send" disabled>Gửi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+
+</html>

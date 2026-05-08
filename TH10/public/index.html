@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập - Chat Realtime</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-bg">
+    <div class="screen">
+        <div class="login-box">
+            <h2>Tham gia Trò chuyện</h2>
+            <input type="text" id="username" placeholder="Nhập tên của bạn..." autocomplete="off">
+            <button id="btn-join">Vào Phòng</button>
+            <p id="error-msg" style="color: red; margin-top: 10px; display: none;">Vui lòng nhập tên hợp lệ!</p>
+        </div>
+    </div>
+
+    <script>
+        // Logic xử lý đăng nhập cục bộ cho trang này
+        const btnJoin = document.getElementById('btn-join');
+        const usernameInput = document.getElementById('username');
+        const errorMsg = document.getElementById('error-msg');
+
+        function login() {
+            const myName = usernameInput.value.trim();
+            if (myName) {
+                // LƯU TÊN VÀO BỘ NHỚ TẠM CỦA TRÌNH DUYỆT
+                sessionStorage.setItem('chat_username', myName);
+
+                // CHUYỂN HƯỚNG SANG TRANG CHAT
+                window.location.href = '/chat.html';
+            } else {
+                errorMsg.style.display = 'block'; // Báo lỗi nếu để trống
+            }
+        }
+
+        btnJoin.addEventListener('click', login);
+        usernameInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') login();
+        });
+    </script>
+</body>
+
+</html>

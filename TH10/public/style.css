@@ -1,0 +1,334 @@
+/* ==========================================
+   1. CẤU HÌNH CHUNG & RESET
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Nền mặc định cho toàn bộ ứng dụng (Trang chat dùng nền này) */
+body {
+    background-color: #f0f2f5;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ==========================================
+   2. MÀN HÌNH ĐĂNG NHẬP (HIỆU ỨNG KÍNH MỜ & GRADIENT ĐỘNG)
+   ========================================== */
+
+/* Hình nền chuyển màu liên tục (Chỉ áp dụng khi thẻ body có class login-bg) */
+body.login-bg {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Khung đăng nhập: Hiệu ứng kính mờ (Glassmorphism) */
+.login-box {
+    background: rgba(255, 255, 255, 0.85);
+    /* Nền trắng trong suốt */
+    backdrop-filter: blur(15px);
+    /* Làm mờ cảnh phía sau */
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 380px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* Viền sáng nổi khối */
+    transform: translateY(0);
+    transition: all 0.4s ease;
+}
+
+.login-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.login-box h2 {
+    margin-bottom: 30px;
+    color: #1c1e21;
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border: 2px solid #e1e5ee;
+    border-radius: 12px;
+    outline: none;
+    font-size: 16px;
+    background: #f9fbfd;
+    transition: all 0.3s;
+}
+
+.login-box input:focus {
+    border-color: #23a6d5;
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(35, 166, 213, 0.2);
+}
+
+.login-box button {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 114, 255, 0.3);
+}
+
+.login-box button:hover {
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 114, 255, 0.5);
+}
+
+/* Thông báo lỗi nhập tên */
+#error-msg {
+    color: #ff4757;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+/* ==========================================
+   3. GIAO DIỆN CHAT CHÍNH (LAYOUT CHUẨN ZALO/MESSENGER)
+   ========================================== */
+#chat-screen {
+    width: 1000px;
+    height: 650px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    display: flex;
+    overflow: hidden;
+}
+
+/* --- CỘT TRÁI: DANH SÁCH USER --- */
+.sidebar {
+    width: 280px;
+    background: #ffffff;
+    border-right: 1px solid #e5e5e5;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.sidebar h3 {
+    padding: 0 20px 15px;
+    font-size: 18px;
+    color: #050505;
+    border-bottom: 1px solid #f0f2f5;
+}
+
+#user-list {
+    list-style: none;
+    overflow-y: auto;
+    flex: 1;
+    margin-top: 10px;
+}
+
+#user-list li {
+    padding: 12px 20px;
+    margin: 5px 10px;
+    background: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #050505;
+    font-weight: 500;
+}
+
+#user-list li:hover {
+    background: #f2f2f2;
+}
+
+#user-list li.active {
+    background: #e7f3ff;
+    color: #0084ff;
+    font-weight: bold;
+}
+
+/* --- CỘT PHẢI: KHUNG CHAT --- */
+.main-chat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+}
+
+.chat-header {
+    padding: 15px 25px;
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
+    font-weight: bold;
+}
+
+/* BỐ CỤC CHỨA TIN NHẮN (FLEX COLUMN) */
+.chat-box {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f2f5;
+    /* Màu nền khu vực tin nhắn */
+}
+
+/* THANH NHẬP DỮ LIỆU */
+.chat-input {
+    padding: 15px 20px;
+    background: white;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    border-top: 1px solid #e5e5e5;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 12px 18px;
+    border: none;
+    background: #f0f2f5;
+    border-radius: 20px;
+    outline: none;
+    font-size: 15px;
+}
+
+.chat-input button {
+    background: transparent;
+    color: #0084ff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: 0.2s;
+}
+
+.chat-input button:disabled {
+    color: #bcc0c4;
+    cursor: not-allowed;
+}
+
+.chat-input button:not(:disabled):hover {
+    background: #e7f3ff;
+    border-radius: 8px;
+}
+
+/* ==========================================
+   4. BONG BÓNG TIN NHẮN (TRÁI / PHẢI)
+   ========================================== */
+.msg {
+    max-width: 65%;
+    margin-bottom: 12px;
+    padding: 10px 16px;
+    border-radius: 18px;
+    position: relative;
+    clear: both;
+    font-size: 15px;
+    line-height: 1.4;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+    /* FIX LỖI TRÀN KHUNG & ÉP XUỐNG DÒNG */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.msg .sender {
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    display: block;
+    opacity: 0.8;
+}
+
+.msg .time {
+    font-size: 10px;
+    text-align: right;
+    margin-top: 4px;
+    display: block;
+    opacity: 0.7;
+}
+
+/* TIN NHẮN CỦA NGƯỜI KHÁC (BÊN TRÁI) */
+.msg.them {
+    background: #ffffff;
+    color: #050505;
+    align-self: flex-start;
+    /* Đẩy sang lề trái */
+    border-bottom-left-radius: 4px;
+    /* Vuốt nhọn góc trái */
+}
+
+/* TIN NHẮN CỦA MÌNH (BÊN PHẢI) */
+.msg.me {
+    background: #0084ff;
+    color: white;
+    align-self: flex-end;
+    /* Đẩy sang lề phải */
+    border-bottom-right-radius: 4px;
+    /* Vuốt nhọn góc phải */
+}
+
+/* Tùy chỉnh thanh cuộn (Scrollbar) cho giống app */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #bcc0c4;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #9fa3a9;
+}
