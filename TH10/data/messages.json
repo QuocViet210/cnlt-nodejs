@@ -1,0 +1,124 @@
+{
+  "Bảo_Nam": [
+    {
+      "sender": "Bảo",
+      "receiver": "Nam",
+      "message": "Chao Nam.",
+      "time": "14:50"
+    },
+    {
+      "sender": "Bảo",
+      "receiver": "Nam",
+      "message": "Bảo nè.",
+      "time": "14:50"
+    },
+    {
+      "sender": "Bảo",
+      "receiver": "Nam",
+      "message": "Nam có khỏe không?",
+      "time": "14:50"
+    },
+    {
+      "sender": "Nam",
+      "receiver": "Bảo",
+      "message": "Hi Bảo!",
+      "time": "14:51"
+    },
+    {
+      "sender": "Nam",
+      "receiver": "Bảo",
+      "message": "mình khỏe. Bạn thì sao?",
+      "time": "14:51"
+    },
+    {
+      "sender": "Bảo",
+      "receiver": "Nam",
+      "message": "nâng cấp thông báo",
+      "time": "15:19"
+    },
+    {
+      "sender": "Bảo",
+      "receiver": "Nam",
+      "message": "1",
+      "time": "15:19"
+    },
+    {
+      "sender": "Bảo",
+      "receiver": "Nam",
+      "message": "2",
+      "time": "15:19"
+    },
+    {
+      "id": "1778232442566i9c6s",
+      "sender": "Bảo",
+      "receiver": "Nam",
+      "message": "3",
+      "time": "16:27",
+      "reaction": null
+    },
+    {
+      "id": "1778232443243o17rq",
+      "sender": "Bảo",
+      "receiver": "Nam",
+      "message": "4",
+      "time": "16:27",
+      "reaction": null
+    },
+    {
+      "id": "17782324439340yacr",
+      "sender": "Bảo",
+      "receiver": "Nam",
+      "message": "5",
+      "time": "16:27",
+      "reaction": null
+    }
+  ],
+  "Nam_Việt": [
+    {
+      "sender": "Nam",
+      "receiver": "Việt",
+      "message": "Hi Việt",
+      "time": "14:52"
+    },
+    {
+      "sender": "Nam",
+      "receiver": "Việt",
+      "message": "Bạn có đang rảnh?",
+      "time": "14:52"
+    },
+    {
+      "sender": "Việt",
+      "receiver": "Nam",
+      "message": "yes.",
+      "time": "14:52"
+    },
+    {
+      "sender": "Việt",
+      "receiver": "Nam",
+      "message": "Nam có việc gì ư?",
+      "time": "14:53"
+    },
+    {
+      "sender": "Nam",
+      "receiver": "Việt",
+      "message": "Nam đã thành công lưu lịch sử cuộc trò chuyện",
+      "time": "15:05"
+    },
+    {
+      "sender": "Việt",
+      "receiver": "Nam",
+      "message": "perfect!",
+      "time": "15:05"
+    }
+  ],
+  "Bảo_Việt": [
+    {
+      "id": "1778230398184dywow",
+      "sender": "Bảo",
+      "receiver": "Việt",
+      "message": "Test chức năng thả cảm xúc  tin nhắn",
+      "time": "15:53",
+      "reaction": "❤️"
+    }
+  ]
+}
